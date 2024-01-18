@@ -1,7 +1,9 @@
 package Demo;
 
+import java.util.Scanner;
+
 public class Thuchanh2 {
-    private String prodld;
+    private String prodId;
     private String prodName;
     private String manufacturer;
     private String producerPrice;
@@ -10,19 +12,18 @@ public class Thuchanh2 {
     }
 
     public Thuchanh2(String prodId, String prodName, String manufacturer, String producerPrice) {
-        this.prodld = prodId;
+        this.prodId = prodId;
         this.prodName = prodName;
         this.manufacturer = manufacturer;
         this.producerPrice = producerPrice;
     }
-
-
-    public String getProdld() {
-        return prodld;
+    // Setters and Getters
+    public String getProdId() {
+        return prodId;
     }
 
-    public void setProdld(String prodld) {
-        this.prodld = prodld;
+    public void setProdId(String prodId) {
+        this.prodId = prodId;
     }
 
     public String getProdName() {
@@ -48,15 +49,37 @@ public class Thuchanh2 {
     public void setProducerPrice(String producerPrice) {
         this.producerPrice = producerPrice;
     }
+
+    // Input method
     public void input() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter Product ID: ");
+        prodId = scanner.nextLine();
+
+        System.out.print("Enter Product Name: ");
+        prodName = scanner.nextLine();
+
+        System.out.print("Enter Manufacturer: ");
+        manufacturer = scanner.nextLine();
+
+        System.out.print("Enter Producer Price: ");
+        producerPrice = scanner.nextLine();
     }
+
+    // Display method
     public void display() {
+        System.out.println("Product ID: " + prodId);
+        System.out.println("Product Name: " + prodName);
+        System.out.println("Manufacturer: " + manufacturer);
+        System.out.println("Producer Price: " + producerPrice);
     }
+
+    // Calculate Sale Price method
     public float calculateSalePrice() {
-        // Thực hiện logic tính giá bán ở đây
         float producerPriceFloat = Float.parseFloat(producerPrice);
         return producerPriceFloat + 0.05f * producerPriceFloat;
     }
 
-
 }
+
+
